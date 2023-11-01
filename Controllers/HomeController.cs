@@ -26,5 +26,11 @@ namespace MVCApplication.Controllers
 
             return View();
         }
+        public ActionResult Deneme()
+        {
+ 
+
+            return View();
+        }
     }
 }
