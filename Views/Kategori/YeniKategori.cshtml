@@ -1,0 +1,22 @@
+﻿@model MVCApplication.Models.Entity.Kategoriler
+
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
+}
+
+<h2>Yeni Kategori Ekleme</h2>
+<div class="container p-5">
+    <form class="form-group" method="post">
+        <div>
+            <label name="KategoriAd">Kategori Adı</label>
+            <input class="form-control" type="text" name="KategoriAd" />
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </form>
+
+</div>
+
+

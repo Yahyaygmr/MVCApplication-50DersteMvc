@@ -1,0 +1,35 @@
+﻿@model MVCApplication.Models.Entity.Urunler
+@{
+    ViewBag.Title = "Yeni Ürün";
+    Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
+}
+
+<h2>Yeni Ürün</h2>
+<div class="container p-5">
+    <form class="form-group" method="post">
+        <div>
+            <label name="UrunAd">Ürün Adı</label>
+            <input class="form-control" type="text" name="UrunAd" required />
+        </div>
+        <div>
+            <label name="Marka">Marka</label>
+            <input class="form-control" type="text" name="Marka" required />
+        </div>
+        <div>
+            <label name="UrunKategori">Kategori</label>
+            @Html.DropDownListFor(x => x.UrunKategori,(List<SelectListItem>)ViewBag.Kategoriler,new { @class="form-control"})
+        </div>
+        <div>
+            <label name="Fiyat">Fiyat</label>
+            <input class="form-control" type="number" name="Fiyat" required />
+        </div>
+        <div>
+            <label name="Stok">Stok</label>
+            <input class="form-control" type="number" name="Stok" required />
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </form>
+
+</div>

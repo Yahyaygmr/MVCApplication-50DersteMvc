@@ -8,7 +8,7 @@
 <h2>Ürünler</h2>
 <br />
 <div class="conatiner">
-    <a href="#" class="btn btn-outline-primary form-control">+ Yeni Ürün</a>
+    <a href="/Urun/YeniUrun" class="btn btn-outline-primary form-control">+ Yeni Ürün</a>
 </div>
 <br />
 <table class="table table-bordered table-hover">
@@ -31,7 +31,7 @@
             <td>@item.Fiyat.ToString() ₺</td>
             <td>@item.Stok</td>
             <td>
-                <a href="#" class="btn btn-sm btn-danger">Sil</a>
+                <a href="/Urun/UrunSil/@item.UrunId" class="btn btn-sm btn-danger">Sil</a>
                 <a href="#" class="btn btn-sm btn-info">Güncelle</a>
                 <a href="#" class="btn btn-sm btn-success">Detay</a>
             </td>
