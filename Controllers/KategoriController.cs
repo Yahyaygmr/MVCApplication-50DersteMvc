@@ -35,5 +35,19 @@ namespace MVCApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult KategoriGuncelle(int id)
+        {
+            var kategori = db.Kategoriler.Find(id);
+            return View(kategori);
+        }
+        [HttpPost]
+        public ActionResult KategoriGuncelle(Kategoriler kategori)
+        {
+            var eskKategori = db.Kategoriler.Find(kategori.KategoriId);
+            eskKategori.KategoriAd = kategori.KategoriAd;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

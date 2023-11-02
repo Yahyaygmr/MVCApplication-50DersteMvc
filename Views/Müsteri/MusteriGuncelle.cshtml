@@ -1,0 +1,28 @@
+﻿@model MVCApplication.Models.Entity.Musteriler
+@{
+    ViewBag.Title = "MusteriGuncelle";
+    Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
+}
+
+<h2>Müşteri Güncelle</h2>
+<div class="container p-5">
+    <form class="form-group" method="post">
+        <div>
+            @Html.HiddenFor(x => x.MusteriId)
+        </div>
+        <div>
+            <label name="MusteriAd">Müşteri Adı</label>
+            @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
+        </div>
+        <div>
+            <label name="MusteriSoyad">Müşteri Soyad</label>
+            @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+
+</div>
+
+

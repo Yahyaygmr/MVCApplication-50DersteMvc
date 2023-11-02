@@ -1,0 +1,39 @@
+﻿@model MVCApplication.Models.Entity.Urunler
+@{
+    ViewBag.Title = "UrunGuncelle";
+    Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
+}
+
+<h2>Ürün Güncelle</h2>
+
+<div class="container p-5">
+    <form class="form-group" method="post">
+        <div>
+            @Html.HiddenFor(x => x.UrunId)
+        </div>
+        <div>
+            <label>Müşteri Adı</label>
+            @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Müşteri Adı</label>
+            @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Kategori</label>
+            @Html.DropDownListFor(x => x.UrunKategori, (List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Fiyat</label>
+            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Stok</label>
+            @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+
+</div>

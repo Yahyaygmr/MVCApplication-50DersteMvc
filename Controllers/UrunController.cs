@@ -42,5 +42,30 @@ namespace MVCApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult UrunGuncelle(int id)
+        {
+            List<SelectListItem> kategoriler = (from k in db.Kategoriler.ToList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = k.KategoriAd,
+                                                    Value = k.KategoriId.ToString()
+                                                }).ToList();
+            ViewBag.Kategoriler = kategoriler;
+            var urun = db.Urunler.Find(id);
+            return View(urun);
+        }
+        [HttpPost]
+        public ActionResult UrunGuncelle(Urunler urun)
+        {
+            var eskUrun = db.Urunler.Find(urun.UrunId);
+            eskUrun.UrunAd = urun.UrunAd;
+            eskUrun.Marka = urun.Marka;
+            eskUrun.UrunKategori = urun.UrunKategori;
+            eskUrun.Fiyat = urun.Fiyat;
+            eskUrun.Stok = urun.Stok;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

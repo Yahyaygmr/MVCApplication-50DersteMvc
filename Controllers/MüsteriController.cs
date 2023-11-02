@@ -28,5 +28,28 @@ namespace MVCApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult MusteriSil(int id)
+        {
+            var musteri = db.Musteriler.Find(id);
+            db.Musteriler.Remove(musteri);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult MusteriGuncelle(int id)
+        {
+            var musteri = db.Musteriler.Find(id);
+
+            return View("MusteriGuncelle",musteri);
+        }
+        [HttpPost]
+        public ActionResult MusteriGuncelle(Musteriler musteri)
+        {
+            var eskMusteri = db.Musteriler.Find(musteri.MusteriId);
+            eskMusteri.MusteriAd = musteri.MusteriAd;
+            eskMusteri.MusteriSoyad = musteri.MusteriSoyad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

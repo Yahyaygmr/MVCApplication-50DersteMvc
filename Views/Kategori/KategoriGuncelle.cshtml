@@ -1,0 +1,23 @@
+﻿@model MVCApplication.Models.Entity.Kategoriler
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
+}
+
+<h2>Kategori Güncelle</h2>
+
+<div class="container p-5">
+    <form class="form-group" method="post">
+        <div>
+            @Html.HiddenFor(x => x.KategoriId)
+        </div>
+        <div>
+            <label name="MusteriAd">Müşteri Adı</label>
+            @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+
+</div>
