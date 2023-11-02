@@ -27,7 +27,7 @@
             <td>
                 <a href="/Müsteri/MusteriSil/@item.MusteriId" class="btn btn-sm btn-danger">Sil</a>
                 <a href="/Müsteri/MusteriGuncelle/@item.MusteriId" class="btn btn-sm btn-info">Güncelle</a>
-                <a href="#" class="btn btn-sm btn-success">Detay</a>
+                @Html.ActionLink("Sil Butonu", "MusteriSil", new {id=item.MusteriId},new {@class="btn btn-sm btn-warning", onclick="return confirm('Silmek İstiyor musunuz?')"})
             </td>
         </tr>
     }

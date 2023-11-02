@@ -6,18 +6,23 @@
 
 <h2>Yeni Müşteri</h2>
 <div class="container p-5">
-    <form class="form-group">
+    <form class="form-group" method="post">
         <div>
             <label name="MusteriAd">Müşteri Adı</label>
-            <input class="form-control" type="text" name="MusteriAd" required/>
+            <input class="form-control" type="text" name="MusteriAd" required />
         </div>
         <div>
             <label name="MusteriSoyad">Müşteri Soyad</label>
-            <input class="form-control" type="text" name="MusteriSoyad" required/>
+            <input class="form-control" type="text" name="MusteriSoyad" required />
         </div>
         <div class="mt-4">
-            <button class="btn btn-success">Kaydet</button>
+            <button id="btnKaydet" class="btn btn-success">Kaydet</button>
         </div>
+        <script>
+            $('#btnKaydet').onclick(function () {
+                alert('Müşteri Kaydı Tamamlandı.');
+            });
+        </script>
     </form>
 
 </div>
