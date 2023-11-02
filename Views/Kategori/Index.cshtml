@@ -1,5 +1,7 @@
 ﻿@using MVCApplication.Models.Entity
-@model List<Kategoriler>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kategoriler>
 @{
     ViewBag.Title = "Kategoriler";
     Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
@@ -29,3 +31,4 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { LiElementClasses = new string[] { "btn btn-outline-primary" } })

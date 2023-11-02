@@ -1,4 +1,5 @@
 ﻿using MVCApplication.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace MVCApplication.Controllers
     {
         // GET: Müsteri
         MVCApplicationDbEntities db = new MVCApplicationDbEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var musteriler = db.Musteriler.ToList();
+            var musteriler = db.Musteriler.ToList().ToPagedList(sayfa, 10);
             return View(musteriler);
         }
         [HttpGet]

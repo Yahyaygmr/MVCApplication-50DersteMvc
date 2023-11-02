@@ -1,5 +1,7 @@
 ﻿@using MVCApplication.Models.Entity
-@model List<Musteriler>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Musteriler>
 @{
     ViewBag.Title = "Müşteriler";
     Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
@@ -8,7 +10,7 @@
 <h2>Müüşteriler</h2>
 <br />
 <div class="conatiner">
-     <a href="/Müsteri/YeniMusteri" class="btn btn-outline-primary form-control">+ Yeni Müşteri</a>
+    <a href="/Müsteri/YeniMusteri" class="btn btn-outline-primary form-control">+ Yeni Müşteri</a>
 </div>
 <br />
 <table class="table table-bordered table-hover">
@@ -31,4 +33,5 @@
     }
 </table>
 
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { LiElementClasses = new string[] { "btn btn-outline-primary" } })
 
