@@ -7,7 +7,14 @@
     Layout = "~/Views/Shared/_ApplicationLayout.cshtml";
 }
 
-<h2>Müüşteriler</h2>
+<h2>Müşteriler</h2>
+<hr />
+<br />
+@using (Html.BeginForm("Index", "Müsteri", FormMethod.Get))
+{
+    <b>Aranacak Müşteri : @Html.TextBox("p")</b>
+    <input type="submit" value="Ara" />
+}
 <br />
 <div class="conatiner">
     <a href="/Müsteri/YeniMusteri" class="btn btn-outline-primary form-control">+ Yeni Müşteri</a>
@@ -27,7 +34,7 @@
             <td>
                 <a href="/Müsteri/MusteriSil/@item.MusteriId" class="btn btn-sm btn-danger">Sil</a>
                 <a href="/Müsteri/MusteriGuncelle/@item.MusteriId" class="btn btn-sm btn-info">Güncelle</a>
-                @Html.ActionLink("Sil Butonu", "MusteriSil", new {id=item.MusteriId},new {@class="btn btn-sm btn-warning", onclick="return confirm('Silmek İstiyor musunuz?')"})
+                @Html.ActionLink("Sil Butonu", "MusteriSil", new { id = item.MusteriId }, new { @class = "btn btn-sm btn-warning", onclick = "return confirm('Silmek İstiyor musunuz?')" })
             </td>
         </tr>
     }

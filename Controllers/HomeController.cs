@@ -15,7 +15,13 @@ namespace MVCApplication.Controllers
             int mmusteriSayisi = db.Musteriler.Count();
             int urunSayisi = db.Urunler.Count();
             int satisSayisi = db.Satislar.Count();
-
+            List<Satislar> satislar = db.Satislar.ToList();
+            decimal topSatis = 0;
+            foreach (var item in satislar)
+            {
+                topSatis += item.Fiyat.Value;
+            }
+            ViewBag.topSatis = topSatis;
             ViewBag.MusteriSayisi = mmusteriSayisi;
             ViewBag.UrunSayisi = urunSayisi;
             ViewBag.SatisSayisi = satisSayisi;

@@ -12,10 +12,17 @@ namespace MVCApplication.Controllers
     {
         // GET: Müsteri
         MVCApplicationDbEntities db = new MVCApplicationDbEntities();
-        public ActionResult Index(int sayfa=1)
+        public ActionResult Index(string p, int sayfa =1)
         {
-            var musteriler = db.Musteriler.ToList().ToPagedList(sayfa, 10);
-            return View(musteriler);
+            var deggerler = from d in db.Musteriler select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                deggerler = deggerler.Where(m => m.MusteriAd.Contains(p));
+            }
+            return View(deggerler.ToList().ToPagedList(sayfa, 10));
+
+            //var musteriler = db.Musteriler.ToList().ToPagedList(sayfa, 10);
+           // return View(musteriler);
         }
         [HttpGet]
         public ActionResult YeniMusteri()
